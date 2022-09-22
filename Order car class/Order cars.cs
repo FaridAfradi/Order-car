@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 namespace Order_car_class {
     public class OrderCar {
 
-    
+
         private string _orderList, _brand, _date, _paymentMethod, _year, _carsInstock, _color, _price;
+
+    
+        
         
 
         public string Brand {

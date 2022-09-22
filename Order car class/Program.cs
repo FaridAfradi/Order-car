@@ -1,12 +1,8 @@
 ﻿using Order_car_class;
 
-
 string orderLists;
-
-
 int customerOrder;
 int customerTotal;
-
 var ForSale = new List<OrderCar>();
 var Prices = new List<OrderCar>();
 
@@ -16,22 +12,27 @@ ForSale.Add(new OrderCar { Brand = "3. Toyota Corolla", Color = "White", Year = 
 ForSale.Add(new OrderCar { Brand = "4. Volvo v90", Color = "Metallic gray", Year = "2023", CarsInStock = "Ready for shipment" });
 ForSale.Add(new OrderCar { Brand = "5. Bugatti", Color = "Puppet orange", Year = "2023", CarsInStock = "Ready for shipment" });
 ForSale.Add(new OrderCar { Brand = "5. Ferarri", Color = "Bloody red", Year = "2011", CarsInStock = "Ready for shipment" });
+Prices.Add(new OrderCar { Price = "1. Mercedes Benz s600 - 105.995$" });
+Prices.Add(new OrderCar { Price = "2. Ford Mustang GT - 135.600$" });
+Prices.Add(new OrderCar { Price = "3. Toyota Corolla - 29.895$" });
+Prices.Add(new OrderCar { Price = "4. Bugatti - 305.995$" });
+Prices.Add(new OrderCar { Price = "5. Ferarri - 105.995$" });
 
-Prices.Add(new OrderCar { Price = "Mercedes Benz s600 - 105.995$" });
-Prices.Add(new OrderCar { Price = "Ford Mustang GT - 135.600$" });
-Prices.Add(new OrderCar { Price = "Toyota Corolla - 29.895$" });
-Prices.Add(new OrderCar { Price = "Bugatti - 305.995$" });
-Prices.Add(new OrderCar { Price = "Ferarri - 105.995$" });
+OrderCar Mercedes = new OrderCar();
+Mercedes.Brand = "Mercedes Benz";
+
 
 
 Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Hi and welcome to Farid's Car!\n\nPlease press enter to proceed to our available cars ");
+Console.WriteLine("Hi and welcome to Farid's Car!\n\nPlease press enter to show our available cars ");
 Console.ReadKey();
 Console.ForegroundColor = ConsoleColor.White;
-Console.WriteLine("-------------------------------------------------------------------------------------------");
+Console.WriteLine("-----------------------------------------------------------------------------------------");
 Console.ForegroundColor = ConsoleColor.White;
 
-Console.WriteLine("Below is a complete list of our available cars");
+Console.WriteLine($"\n\nBelow is a complete list of our available cars.");
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine($"(The list was last updated {DateTime.Now})");
 
 for (int i = 0; i < ForSale.Count; i++) {
 
@@ -39,50 +40,30 @@ for (int i = 0; i < ForSale.Count; i++) {
         
 }
 Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("\n\n Which car do you want more information about?\n");
-switch (int.Parse(Console.ReadLine())) {
-
-    case 1:
-        Console.WriteLine($"\n\nOur mercedes is a superb car! the pricing starts at {OrderCar.Prices[0]}
-
-        break;
-        
-
-}
-
-
-
-
-
+Console.WriteLine("\nPRICELIST\n");
 for (int j = 0; j < Prices.Count; j++) {
 
     Prices[j].PresentPrice();
-
 }
-Console.ForegroundColor = ConsoleColor.White;
-Console.WriteLine("\n\nDoes any of the cars seems interesting?");
-string interestedInCar = Console.ReadLine().ToLower();
-if (interestedInCar == "yes") {
 
-    switch (ForSale) {
+Console.WriteLine("\nDoes any car interests you? Please answer Yes or No");
+string userAnswer = Console.ReadLine().ToLower();
+if (userAnswer == "yes") {
 
-        
+    Console.ForegroundColor = ConsoleColor.White;
+    Console.WriteLine("\n\nWhich car are you most interested in? 1,2,3,4 or 5?");
+    int interestedInCar = int.Parse(Console.ReadLine());
 
+    switch (interestedInCar) {
 
-
+        case 1:
+            Console.WriteLine("test");
+            break;
+        case 2:
+            Console.WriteLine("test");
+            break;
     }
-
-} 
-else if (interestedInCar == "no") {
-
-
-
-
 }
-
-
-
-
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine("\n\n\nWould you like to place an order on any other vehicle besides the the oones in our list?");
 string customerPick1 = Console.ReadLine().ToLower();
